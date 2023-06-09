@@ -1,3 +1,4 @@
+import { MainCardComponent } from "../main-card/main-card-component";
 import {
   MedicalHistoryCard,
   MedicalOptionsList,
@@ -7,21 +8,23 @@ import {
 export const MedicalHistoryCardComponent = () => {
   return (
     <MedicalHistoryCard>
-      <h3>Acompanhamento Médico</h3>
-      <MedicalOptionsList>
-        <MedicalOption>
-          <span>Relatórios de consultas</span>
-        </MedicalOption>
-        <MedicalOption>
-          <span>Recomendações de tratamentos</span>
-        </MedicalOption>
-        <MedicalOption>
-          <span>Resultados de exames</span>
-        </MedicalOption>
-        <MedicalOption>
-          <span>Orientações médicas</span>
-        </MedicalOption>
-      </MedicalOptionsList>
+      <MainCardComponent>
+        <h3>Acompanhamento Médico</h3>
+        <MedicalOptionsList>
+          <MedicalOption>
+            <span>Relatórios de consultas</span>
+          </MedicalOption>
+          <MedicalOption>
+            <span>Tratamentos</span>
+          </MedicalOption>
+          <MedicalOption>
+            <span>Resultados de exames</span>
+          </MedicalOption>
+          <MedicalOption>
+            <span>Orientações médicas</span>
+          </MedicalOption>
+        </MedicalOptionsList>
+      </MainCardComponent>
     </MedicalHistoryCard>
   );
 };

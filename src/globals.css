@@ -3,9 +3,20 @@
   line-height: 1.5;
   font-weight: 400;
 
+  /* text-align: left; */
+
   /* color-scheme: light dark; */
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--text-dark);
+  /* background-color: #242424; */
+  /* background: linear-gradient(
+    167.34deg,
+    #dfe2eb 8.9%,
+    #f0f3fa 33.58%,
+    #bec5d2 63.8%,
+    #8a95a8 90.61%
+  );
+  background-repeat: no-repeat;
+  background-size: cover; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,9 +39,24 @@
     #7935ae 86.55%,
     #6f39b3 127.39%
   );
+  --linear-html-bg: linear-gradient(
+    167.34deg,
+    #dfe2eb 8.9%,
+    #f0f3fa 33.58%,
+    #bec5d2 63.8%,
+    #8a95a8 90.61%
+  );
 
   --text-dark: #3d3e41;
-  --text-white-color: #f5f8fe;
+  --text-light: #909193;
+  --text-white: #f5f8fe;
+
+  --text-background: #ffffff;
+
+  --purple-dark: #6f39b3;
+  --orange-color: #fca568;
+
+  --desktop-size: 1200px;
 }
 
 a {
@@ -43,11 +69,11 @@ h3 {
   /* font-size: 16px; */
   /* font-size: 12px; */
   /* font-size: 100%; */
-  font-size: clamp(14px, 3vw, 16px);
+  font-size: clamp(16px, 3vw, 18px);
   /* font-size: 0.8em; */
   line-height: 20px;
   color: var(--text-dark);
-  margin: 4px;
+  margin: 4px 0;
 }
 
 h4,
@@ -55,13 +81,15 @@ span {
   font-weight: 700;
   /* font-size: 14px; */
   /* font-size: 100%; */
-  font-size: clamp(12px, 1vw, 14px);
+  /* font-size: clamp(12px, 1vw, 14px); */
   line-height: 18px;
 }
 
 p,
-a {
-  font-size: clamp(10px, 1vw, 12px);
+a,
+span,
+h4 {
+  font-size: clamp(12px, 1vw, 14px);
   /* font-size: 12px; */
-  line-height: 15px;
+  /* line-height: 15px; */
 }

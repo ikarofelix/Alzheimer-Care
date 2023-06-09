@@ -1,14 +1,40 @@
-import { Bar } from "react-chartjs-2";
 import styled from "styled-components";
 import { ChartColors } from "../../utils/heart-rate-chart/heart-rate-chart-utils";
 
 export const HeartRateCard = styled.div`
-  width: clamp(118px, 80vw, 560px);
+  /* width: clamp(118px, 80vw, 620px); */
+  /* grid-column: span 2; */
+
+  grid-area: heart;
+
+  /* width: 100%; */
+  height: 100%;
+
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+
+  /* border: 1px solid blue; */
+
+  h3 {
+    text-align: left;
+  }
+`;
+
+export const HeartRate = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  height: 90%;
+  /* height: min(30vw, 400px); */
+
+  /* height: 60vw; */
+  /* max-height: 250px; */
+
+  /* border: 1px solid red; */
 `;
 
 export const HeartRateCardSubtitle = styled.div`
@@ -17,17 +43,35 @@ export const HeartRateCardSubtitle = styled.div`
   flex-direction: column;
   align-items: flex-end;
 
-  span:first-child {
+  p {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  p:first-child {
     color: ${ChartColors.orange};
   }
-  span:nth-child(2) {
+  p:nth-child(2) {
     color: ${ChartColors.green};
   }
-  span:last-child {
+  p:last-child {
     color: ${ChartColors.red};
   }
 `;
 
-export const HeartRateCardChart = styled(Bar)`
-  width: 100%;
+export const HeartRateChart = styled.div`
+  /* width: 100%; */
+  /* height: 100%; */
+
+  /* border: 1px solid blue; */
+  width: 90%;
+  height: 80%;
+
+  overflow: hidden;
+
+  /* box-sizing: border-box; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

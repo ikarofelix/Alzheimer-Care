@@ -16,6 +16,7 @@ const data: ChartData<"doughnut"> = {
 
 const options: ChartOptions<"doughnut"> = {
   responsive: true,
+  maintainAspectRatio: false,
   plugins: {
     legend: {
       display: true,
