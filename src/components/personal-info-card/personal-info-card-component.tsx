@@ -2,6 +2,7 @@ import { MainCardComponent } from "../main-card/main-card-component";
 import { PersonalInfoCard, PersonalInfoContainer, PersonalInfo } from "./personal-info-card-styles";
 import { DividerComponent } from "../divider/divider-component";
 import ElderlyMan from "../../assets/personal-info-card/elderly-man.jpg";
+import ElderlyWoman from "../../assets/personal-info-card/elderly-woman.jpg";
 
 export const PersonalInfoCardComponent = () => {
   return (

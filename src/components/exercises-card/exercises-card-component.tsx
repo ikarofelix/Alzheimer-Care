@@ -1,18 +1,17 @@
 import { MainCardComponent } from "../main-card/main-card-component";
-import { ExercisesCard, Test, Test2 } from "./exercises-card-styles";
-import { ExercisesChartConfig } from "../../utils/exercises-chart/exercises-chart-utils";
-import { Doughnut } from "react-chartjs-2";
+import { ExercisesCard, Exercises, ExercisesChartContainer } from "./exercises-card-styles";
+import { ExercisesChart } from "../../utils/exercises-chart/exercises-chart-utils";
 
 export const ExercisesCardComponent = () => {
   return (
     <ExercisesCard>
       <MainCardComponent>
-        <Test>
+        <Exercises>
           <h3>Exercícios</h3>
-          <Test2>
-            <Doughnut data={ExercisesChartConfig.data} options={ExercisesChartConfig.options} />
-          </Test2>
-        </Test>
+          <ExercisesChartContainer>
+            <ExercisesChart />
+          </ExercisesChartContainer>
+        </Exercises>
       </MainCardComponent>
     </ExercisesCard>
   );

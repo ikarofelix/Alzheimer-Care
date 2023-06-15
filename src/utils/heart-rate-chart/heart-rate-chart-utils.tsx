@@ -1,5 +1,6 @@
 import { Plugin, ChartOptions, ChartData, ChartConfiguration } from "chart.js";
 import { Chart as ChartJS, CategoryScale } from "chart.js/auto";
+import { Bar } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale);
 
@@ -131,9 +132,15 @@ const options: ChartOptions<"bar"> = {
   },
 };
 
-export const HeartRateChartConfig: ChartConfiguration<"bar"> = {
+const ChartConfig: ChartConfiguration<"bar"> = {
   type: "bar",
   data: data,
   options: options,
   plugins: [chartAreaBorder, topLabels],
+};
+
+export const HeartRateChart = () => {
+  return (
+    <Bar data={ChartConfig.data} options={ChartConfig.options} plugins={ChartConfig.plugins} />
+  );
 };

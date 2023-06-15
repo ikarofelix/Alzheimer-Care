@@ -1,16 +1,13 @@
+import { HeartRateChart } from "../../utils/heart-rate-chart/heart-rate-chart-utils";
 import { MainCardComponent } from "../main-card/main-card-component";
-import { HeartRateChartConfig } from "../../utils/heart-rate-chart/heart-rate-chart-utils";
 import {
   HeartRateCard,
   HeartRate,
   HeartRateCardSubtitle,
-  HeartRateChart,
+  HeartRateChartContainer,
 } from "./heart-rate-card-styles";
-import { Bar } from "react-chartjs-2";
 
 export const HeartRateCardComponent = () => {
-  const { data, options, plugins } = HeartRateChartConfig;
-
   return (
     <HeartRateCard>
       <MainCardComponent>
@@ -21,9 +18,9 @@ export const HeartRateCardComponent = () => {
             <p>Recomendado</p>
             <p>Perigo</p>
           </HeartRateCardSubtitle>
-          <HeartRateChart>
-            <Bar data={data} options={options} plugins={plugins} />
-          </HeartRateChart>
+          <HeartRateChartContainer>
+            <HeartRateChart />
+          </HeartRateChartContainer>
         </HeartRate>
       </MainCardComponent>
     </HeartRateCard>

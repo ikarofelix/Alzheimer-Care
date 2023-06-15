@@ -1,5 +1,6 @@
 import { ChartOptions, ChartData, ChartConfiguration } from "chart.js";
 import { Chart as ChartJS, CategoryScale } from "chart.js/auto";
+import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale);
 
@@ -35,8 +36,12 @@ const options: ChartOptions<"doughnut"> = {
   },
 };
 
-export const ExercisesChartConfig: ChartConfiguration<"doughnut"> = {
+const ChartConfig: ChartConfiguration<"doughnut"> = {
   type: "doughnut",
   data: data,
   options: options,
+};
+
+export const ExercisesChart = () => {
+  return <Doughnut data={ChartConfig.data} options={ChartConfig.options} />;
 };

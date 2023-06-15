@@ -3,21 +3,12 @@ import styled from "styled-components";
 
 const MainCard = styled.div`
   margin: auto;
-
-  /* width: clamp(150px, 100%, 440px); */
-  /* width: fit-content; */
-  /* width: 100%; */
-  /* max-width: 440px; */
-
   width: 100%;
   height: 100%;
-
   padding: 20px;
   box-sizing: border-box;
-
   background: var(--main-card-bg);
   border-radius: var(--main-card-border-radius);
-
   filter: var(--main-card-filter);
 `;
 

@@ -10,7 +10,10 @@ export const EmergencyContactsCardComponent = () => {
         <h3>Contatos de Emergência</h3>
         <ContactsList>
           <Contact>
-            <h4>Juliana Maria Henrique machado do nascimento augusto ribeiro desde santos</h4>
+            <h4>
+              Juliana Maria Henrique machado do nascimento augusto ribeiro desde santos asdfahsd
+              fasjd fkajsh dfkja sdkfha kdf aksdf kasdfa sdflasjd hfkasjd akdf kasdf
+            </h4>
             <p>(31) 99743-2394</p>
             <CallButton role="button" color={CallButtonColor.purple}>
               Ligar
@@ -23,21 +26,6 @@ export const EmergencyContactsCardComponent = () => {
               Ligar
             </CallButton>
           </Contact>
-          {/* 
-          <Contact>
-            <h4>Juliana</h4>
-            <p>(31) 99743-2394</p>
-            <CallButton role="button" color={CallButtonColor.purple}>
-              Ligar
-            </CallButton>
-          </Contact> */}
-          {/* <Contact>
-            <h4>Juliana</h4>
-            <p>(31) 99743-2394</p>
-            <CallButton role="button" color={CallButtonColor.purple}>
-              Ligar
-            </CallButton>
-          </Contact> */}
         </ContactsList>
         <CallButton role="button" color={CallButtonColor.red}>
           Emergência (SAMU)

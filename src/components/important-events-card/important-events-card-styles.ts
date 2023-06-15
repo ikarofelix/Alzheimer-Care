@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
 export const ImportantEventsCard = styled.div`
-  /* width: clamp(100px, 80vw, 460px); */
-  /* width: 10%; */
   grid-area: events;
-
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -22,8 +19,6 @@ export const ImportantEventsList = styled.div`
 export const ImportantEvent = styled.div`
   display: flex;
   flex-direction: column;
-  /* margin-top: 20px; */
-  /* width: 100%; */
   box-sizing: border-box;
   overflow: hidden;
   background-color: var(--text-background);
@@ -39,14 +34,9 @@ export const ImportantEvent = styled.div`
 
   p {
     margin: 0;
-
     width: 100%;
     height: 1.5em;
-
-    /* white-space: nowrap; */
-    /* text-overflow: ellipsis; */
     word-break: break-all;
-
     overflow: hidden;
   }
 `;
