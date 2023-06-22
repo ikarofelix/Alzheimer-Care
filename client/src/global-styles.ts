@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         -webkit-text-size-adjust: 100%;
 
+        --solid-background-color: #D8DDE7;
         --main-card-bg: #f0f3fa;
         --main-card-filter: drop-shadow(0px 4px 4px #6f39b3);
         --main-card-border-radius: 16px;
@@ -38,11 +39,13 @@ export const GlobalStyles = createGlobalStyle`
         --text-background: #ffffff;
         --purple-dark: #6f39b3;
         --orange-color: #fca568;
+        
+
     }
 
     #root {
         margin: 0 auto;
-        padding: 2rem;
+        /* padding: 2rem; */
         text-align: center;
     }
 
@@ -73,10 +76,15 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     html {
-        background: var(--linear-html-bg) fixed;
+        /* background: var(--linear-html-bg) fixed; */
+        background: gray;
     }
 
     body {
         margin: 0;
+    }
+
+    input{
+        font-family: "Oxygen", sans-serif;
     }
 `;

@@ -9,25 +9,30 @@ import { ProfessionalCardComponent } from "./components/professional-card/profes
 import { MedicalHistoryCardComponent } from "./components/medical-history-card/medical-history-card-component";
 import { ExercisesCardComponent } from "./components/exercises-card/exercises-card-component";
 
+import { SignUpRoute } from "./routes/signup/signup-route";
+import { SignInRoute } from "./routes/signin/signin-route";
+
 function App() {
   return (
-    <MainContainer>
-      <FirstGrid>
-        <PersonalInfoCardComponent />
-        <EmergencyContactsCardComponent />
-        <HeartRateCardComponent />
-      </FirstGrid>
-      <SecondGrid>
-        <HabitsCardComponent />
-        <ImportantEventsCardComponent />
-        <MedicineCardComponent />
-      </SecondGrid>
-      <ThirdGrid>
-        <ProfessionalCardComponent />
-        <MedicalHistoryCardComponent />
-        <ExercisesCardComponent />
-      </ThirdGrid>
-    </MainContainer>
+    // <SignUpRoute />
+    <SignInRoute />
+    // <MainContainer>
+    //   <FirstGrid>
+    //     <PersonalInfoCardComponent />
+    //     <EmergencyContactsCardComponent />
+    //     <HeartRateCardComponent />
+    //   </FirstGrid>
+    //   <SecondGrid>
+    //     <HabitsCardComponent />
+    //     <ImportantEventsCardComponent />
+    //     <MedicineCardComponent />
+    //   </SecondGrid>
+    //   <ThirdGrid>
+    //     <ProfessionalCardComponent />
+    //     <MedicalHistoryCardComponent />
+    //     <ExercisesCardComponent />
+    //   </ThirdGrid>
+    // </MainContainer>
   );
 }
 

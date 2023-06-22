@@ -12,8 +12,11 @@ import {
 import { ButtonComponent, ButtonComponentTypes } from "../../components/button/button-component";
 import { InputComponent, LabelComponent } from "../../components/input/input-component";
 import { GoogleIcon } from "../../assets/login-route/google-icon";
+import { signInWithGooglePopup, auth, provider } from "../../utils/firebase/firebase";
 
 export const SignInRoute = () => {
+  const LoginWithGoogle = () => signInWithGooglePopup();
+
   return (
     <AuthRoute>
       <AuthSection>
@@ -22,7 +25,7 @@ export const SignInRoute = () => {
             <h1>Seja bem-vindo(a)!</h1>
             <h3>Por favor, insira suas informações.</h3>
           </AuthTitle>
-          <AuthForm action="">
+          <AuthForm action="" onSubmit={(e) => e.preventDefault()}>
             <div>
               <LabelComponent htmlFor="login-email">Email</LabelComponent>
               <InputComponent
@@ -46,7 +49,7 @@ export const SignInRoute = () => {
             <ButtonsContainer>
               <ButtonComponent color={ButtonComponentTypes.LoginButton}>Entrar</ButtonComponent>
               <ButtonComponent color={ButtonComponentTypes.GoogleLoginButton}>
-                <GoogleLoginContainer>
+                <GoogleLoginContainer onClick={LoginWithGoogle}>
                   <GoogleIcon /> Entrar com Google
                 </GoogleLoginContainer>
               </ButtonComponent>
