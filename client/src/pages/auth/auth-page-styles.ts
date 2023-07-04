@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AuthRoute = styled.main`
+export const AuthPageContainer = styled.main`
   display: flex;
   align-items: center;
 
@@ -19,6 +19,7 @@ export const AuthSection = styled.section`
   width: 50%;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -36,11 +37,10 @@ export const AuthSection = styled.section`
 
   a {
     color: var(--purple-dark);
+    cursor: pointer;
   }
 
   @media screen and (max-width: 1024px) {
-    flex-direction: column-reverse;
-    align-items: center;
     width: 100%;
   }
 `;
