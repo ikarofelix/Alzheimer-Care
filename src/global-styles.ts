@@ -45,7 +45,6 @@ export const GlobalStyles = createGlobalStyle`
 
     #root {
         margin: 0 auto;
-        /* padding: 2rem; */
         text-align: center;
     }
 
@@ -76,8 +75,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     html {
-        /* background: var(--linear-html-bg) fixed; */
-        background: gray;
+        background: var(--linear-html-bg) fixed;
     }
 
     body {

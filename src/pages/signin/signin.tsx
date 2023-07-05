@@ -41,9 +41,22 @@ export const SignIn = () => {
     }
   };
 
+  const signInWithGoogle = async () => {
+    try {
+      const user = await signInWithGooglePopup();
+      const { uid, displayName, email } = user as UserGoogleType;
+      await userAuthentication({ uid, displayName, email });
+    } catch (err) {
+      throw err;
+    }
+  };
+
   const signInWithDemo = async () => {
     try {
-      const user = await signInEmailAndPassword("test@gmail.com", "password");
+      const user = await signInEmailAndPassword(
+        import.meta.env.VITE_DEMO_ACCOUNT_EMAIL,
+        import.meta.env.VITE_DEMO_ACCOUNT_PASSWORD
+      );
       await authenticateUser({
         variables: {
           user: { uid: user.uid, displayName: user.displayName, email: user.email },
@@ -63,16 +76,6 @@ export const SignIn = () => {
         },
       });
       window.location.href = "/";
-    } catch (err) {
-      throw err;
-    }
-  };
-
-  const LoginWithGoogle = async () => {
-    try {
-      const user = await signInWithGooglePopup();
-      const { uid, displayName, email } = user as UserGoogleType;
-      await userAuthentication({ uid, displayName, email });
     } catch (err) {
       throw err;
     }
@@ -134,7 +137,7 @@ export const SignIn = () => {
             Entrar
           </ButtonComponent>
           <ButtonComponent color={ButtonComponentTypes.GoogleLoginButton} type="button">
-            <GoogleLoginContainer onClick={LoginWithGoogle}>
+            <GoogleLoginContainer onClick={signInWithGoogle}>
               <GoogleIcon /> Entrar com Google
             </GoogleLoginContainer>
           </ButtonComponent>

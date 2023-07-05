@@ -1,5 +1,4 @@
 import { useState, ChangeEvent, FormEvent } from "react";
-
 import { AuthContainer, AuthTitle, AuthForm, ButtonsContainer } from "../auth/auth-page-styles";
 import { LabelComponent, InputComponent } from "../../components/input/input-component";
 import { ButtonComponent, ButtonComponentTypes } from "../../components/button/button-component";
@@ -8,7 +7,7 @@ import { FirebaseError } from "firebase/app";
 import { AuthErrorCodes } from "firebase/auth";
 import { useLazyQuery } from "@apollo/client";
 import { AUTHENTICATE_USER_QUERY } from "../../queries/queries";
-import { LoaderComponent } from "../../components/loading/loader-component";
+import { LoaderComponent } from "../../components/loader/loader-component";
 
 export const SignUp = () => {
   const [name, setName] = useState("");
@@ -22,7 +21,6 @@ export const SignUp = () => {
 
   const signUp = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     setSignUpError("");
 
     if (password != confirmPassword) {
@@ -31,15 +29,12 @@ export const SignUp = () => {
 
     try {
       const user = await signUpWithEmailAndPassword(email, password, name);
-
       setSignUpLoading(true);
-
       await authenticateUser({
         variables: {
           user: { uid: user.uid, displayName: user.displayName, email: user.email },
         },
       });
-
       window.location.href = "/";
     } catch (err) {
       (err as FirebaseError).code === AuthErrorCodes.EMAIL_EXISTS &&

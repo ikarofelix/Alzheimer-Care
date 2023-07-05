@@ -7,6 +7,7 @@ enum ScreenSizes {
 
 export const MainContainer = styled.main`
   max-width: 1342px;
+  padding: 1em;
   margin: auto;
   display: grid;
   grid-gap: 20px;
