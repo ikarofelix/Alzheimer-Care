@@ -3,6 +3,7 @@ import {
   CommunicationCard,
   Communication,
   CommunicationIconContainer,
+  CommunicationList,
 } from "./communication-card-styles";
 import { WalkIcon } from "../../assets/communication-card/walk-icon";
 import { FoodIcon } from "../../assets/communication-card/eating-icon";
@@ -15,6 +16,7 @@ import { CommunicationCategory } from "../../types/user-types";
 
 export const CommunicationCardComponent = () => {
   const { communication_card } = useAppSelector(currentUserSelector);
+
   const categoryToIconMap = {
     [CommunicationCategory.walk]: <WalkIcon />,
     [CommunicationCategory.food]: <FoodIcon />,
@@ -27,19 +29,21 @@ export const CommunicationCardComponent = () => {
     <MainCardComponent>
       <CommunicationCard>
         <h3>Comunicação</h3>
-        {communication_card && communication_card.length ? (
-          communication_card.slice(0, 4).map((item) => {
-            const Icon = categoryToIconMap[item.category];
-            return (
-              <Communication key={communication_card.indexOf(item)}>
-                <CommunicationIconContainer>{Icon}</CommunicationIconContainer>
-                <p>{item.text}</p>
-              </Communication>
-            );
-          })
-        ) : (
-          <p style={{ textAlign: "center" }}>Você não possui item de comunicação</p>
-        )}
+        <CommunicationList>
+          {communication_card && communication_card.length ? (
+            communication_card.slice(0, 4).map((item) => {
+              const Icon = categoryToIconMap[item.category];
+              return (
+                <Communication key={communication_card.indexOf(item)}>
+                  <CommunicationIconContainer>{Icon}</CommunicationIconContainer>
+                  <p>{item.text}</p>
+                </Communication>
+              );
+            })
+          ) : (
+            <p style={{ textAlign: "center" }}>Você não possui item de comunicação</p>
+          )}
+        </CommunicationList>
       </CommunicationCard>
     </MainCardComponent>
   );

@@ -2,13 +2,16 @@ import styled from "styled-components";
 
 export const CommunicationCard = styled.div`
   grid-area: communication;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 
   h3 {
     text-align: left;
   }
+`;
+
+export const CommunicationList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 `;
 
 export const Communication = styled.div`

@@ -10,45 +10,6 @@ import {
 export const ImportantEventsCardComponent = () => {
   const { event_card } = useAppSelector(currentUserSelector);
 
-  // const event_card = [
-  //   {
-  //     date: "23/06/2023",
-  //     text: "Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo.",
-  //   },
-  //   {
-  //     date: "23/06/2023",
-  //     text: "Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo.",
-  //   },
-  //   {
-  //     date: "23/06/2023",
-  //     text: "Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo.",
-  //   },
-  //   {
-  //     date: "23/06/2023",
-  //     text: "Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo.",
-  //   },
-  //   {
-  //     date: "23/06/2023",
-  //     text: "Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo.",
-  //   },
-  //   {
-  //     date: "23/06/2023",
-  //     text: "Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo.",
-  //   },
-  //   {
-  //     date: "23/06/2023",
-  //     text: "Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo.",
-  //   },
-  //   {
-  //     date: "23/06/2023",
-  //     text: "Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo.",
-  //   },
-  //   {
-  //     date: "23/06/2023",
-  //     text: "Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo. Queda a caminho do banheiro, queda leve ralando o joelho e cotovelo.",
-  //   },
-  // ];
-
   return (
     <MainCardComponent>
       <ImportantEventsCard>

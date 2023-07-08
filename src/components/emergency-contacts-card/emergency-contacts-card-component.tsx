@@ -33,7 +33,7 @@ export const EmergencyContactsCardComponent = () => {
             <p>Você não possui contato de emergência</p>
           )}
         </ContactsList>
-        <CallButton role="button" color={CallButtonColor.red}>
+        <CallButton role="button" color={CallButtonColor.red} href="tel:192">
           Emergência (SAMU)
         </CallButton>
       </EmergencyContactsCard>
