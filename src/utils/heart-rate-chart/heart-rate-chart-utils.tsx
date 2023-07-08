@@ -1,35 +1,17 @@
 import { Plugin, ChartOptions, ChartData, ChartConfiguration } from "chart.js";
 import { Chart as ChartJS, CategoryScale } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
+import { useAppSelector } from "../../redux/hooks";
+import { currentUserSelector } from "../../redux/user/user-slice";
 
 ChartJS.register(CategoryScale);
 
-export enum ChartColors {
-  red = "#FF0000",
-  green = "#008000",
+enum ChartColors {
+  purple = "#8d3abd",
+  blue = "#1174ad",
   orange = "#FF7300",
   textDark = "#3D3E41",
 }
-
-const data: ChartData<"bar"> = {
-  labels: ["23/06", "25/06", "27/06", "29/06", "30/06", "01/07", "03/07"],
-  datasets: [
-    {
-      label: "BPM",
-      data: [75, 123, 105, 103, 130, 127, 125],
-      backgroundColor: ((context: { raw: number }) => {
-        if (context.raw < 100 || context.raw > 140) {
-          return ChartColors.red;
-        } else if (context.raw > 110 && context.raw < 140) {
-          return ChartColors.green;
-        } else {
-          return ChartColors.orange;
-        }
-      }) as any,
-      borderRadius: 5,
-    },
-  ],
-};
 
 const chartAreaBorder: Plugin<"bar"> = {
   id: "chartAreaBorder",
@@ -98,6 +80,7 @@ const options: ChartOptions<"bar"> = {
     title: {
       display: true,
       text: "(BPM - Batimentos por minuto)",
+      padding: { bottom: 30 },
     },
   },
   scales: {
@@ -132,15 +115,42 @@ const options: ChartOptions<"bar"> = {
   },
 };
 
-const ChartConfig: ChartConfiguration<"bar"> = {
-  type: "bar",
-  data: data,
-  options: options,
-  plugins: [chartAreaBorder, topLabels],
-};
-
 export const HeartRateChart = () => {
-  return (
+  const { bpm_card } = useAppSelector(currentUserSelector);
+
+  const datesList = bpm_card && bpm_card.slice(0, 7).map((item) => item.date);
+  const bpmList = bpm_card && bpm_card.slice(0, 7).map((item) => item.bpm);
+
+  const data: ChartData<"bar"> = {
+    labels: datesList,
+    datasets: [
+      {
+        label: "BPM",
+        data: bpmList as [number],
+        backgroundColor: ((context: { raw: number }) => {
+          if (context.raw < 100 || context.raw > 140) {
+            return ChartColors.purple;
+          } else if (context.raw > 110 && context.raw < 140) {
+            return ChartColors.blue;
+          } else {
+            return ChartColors.orange;
+          }
+        }) as any,
+        borderRadius: 5,
+      },
+    ],
+  };
+
+  const ChartConfig: ChartConfiguration<"bar"> = {
+    type: "bar",
+    data: data,
+    options: options,
+    plugins: [chartAreaBorder, topLabels],
+  };
+
+  return bpm_card && bpm_card.length ? (
     <Bar data={ChartConfig.data} options={ChartConfig.options} plugins={ChartConfig.plugins} />
+  ) : (
+    <p>Você não possui registro de frequência cardíaca</p>
   );
 };

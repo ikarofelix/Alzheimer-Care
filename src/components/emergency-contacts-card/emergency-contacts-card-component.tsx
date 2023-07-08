@@ -2,30 +2,36 @@ import { MainCardComponent } from "../main-card/main-card-component";
 import { EmergencyContactsCard, ContactsList, Contact } from "./emergency-contacts-card-styles";
 import { CallButton } from "../call-button/call-button-component";
 import { CallButtonColor } from "../call-button/call-button-component";
+import { useAppSelector } from "../../redux/hooks";
+import { currentUserSelector } from "../../redux/user/user-slice";
 
 export const EmergencyContactsCardComponent = () => {
+  const { emergency_card } = useAppSelector(currentUserSelector);
+
   return (
     <MainCardComponent>
       <EmergencyContactsCard>
         <h3>Contatos de Emergência</h3>
         <ContactsList>
-          <Contact>
-            <h4>
-              Juliana Maria Henrique machado do nascimento augusto ribeiro desde santos asdfahsd
-              fasjd fkajsh dfkja sdkfha kdf aksdf kasdfa sdflasjd hfkasjd akdf kasdf
-            </h4>
-            <p>(31) 99743-2394</p>
-            <CallButton role="button" color={CallButtonColor.purple}>
-              Ligar
-            </CallButton>
-          </Contact>
-          <Contact>
-            <h4>Juliana</h4>
-            <p>(31) 99743-2394</p>
-            <CallButton role="button" color={CallButtonColor.purple}>
-              Ligar
-            </CallButton>
-          </Contact>
+          {emergency_card && emergency_card.length ? (
+            emergency_card.slice(0, 3).map((contact) => {
+              return (
+                <Contact key={emergency_card.indexOf(contact)}>
+                  <h4>{contact.name}</h4>
+                  <p>{contact.phone_number}</p>
+                  <CallButton
+                    role="button"
+                    color={CallButtonColor.purple}
+                    href={`tel:+55${contact.phone_number}`}
+                  >
+                    Ligar
+                  </CallButton>
+                </Contact>
+              );
+            })
+          ) : (
+            <p>Você não possui contato de emergência</p>
+          )}
         </ContactsList>
         <CallButton role="button" color={CallButtonColor.red}>
           Emergência (SAMU)

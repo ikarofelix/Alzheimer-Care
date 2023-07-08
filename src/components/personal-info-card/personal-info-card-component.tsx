@@ -1,39 +1,73 @@
 import { MainCardComponent } from "../main-card/main-card-component";
-import { PersonalInfoCard, PersonalInfoContainer, PersonalInfo } from "./personal-info-card-styles";
+import {
+  PersonalInfoCard,
+  PersonalInfoContainer,
+  PersonalInfo,
+  PersonalInfoText,
+} from "./personal-info-card-styles";
 import { DividerComponent } from "../divider/divider-component";
-import ElderlyMan from "../../assets/personal-info-card/elderly-man.jpg";
-import ElderlyWoman from "../../assets/personal-info-card/elderly-woman.jpg";
+import ProfileImg from "../../assets/personal-info-card/profile.png";
+import { useAppSelector } from "../../redux/hooks";
+import { currentUserSelector } from "../../redux/user/user-slice";
 
 export const PersonalInfoCardComponent = () => {
+  const { name, age, weight, height, address } = useAppSelector(currentUserSelector);
+
+  const renderAge = (age: number) => {
+    if (age) {
+      return age > 1 ? `${age} anos` : `${age} ano`;
+    }
+    return "não informada";
+  };
+
+  const renderHeight = (height: number) => {
+    if (height) {
+      return height < 100
+        ? `${height} cm`
+        : `${(height / 100).toLocaleString(undefined, { minimumFractionDigits: 2 })}m `;
+    }
+    return "não informada";
+  };
+
+  const renderWeight = (weight: number) => {
+    if (weight) {
+      return `${weight}Kg`;
+    }
+    return "não informado";
+  };
+
   return (
     <MainCardComponent>
       <PersonalInfoCard>
         <div>
-          <h3>Sinval Batista</h3>
+          <PersonalInfoText as={"h3"}>{name}</PersonalInfoText>
           <img
-            src={ElderlyMan}
-            alt="Desenho de um senhor de idade com cabelo e barba brancos, um óculos azul, casaco laranja em um fundo azul escuro"
+            src={ProfileImg}
+            alt="Ícone em branco de um casal de idosos, cada um com sua bengala em um fundo azul escuro"
           />
         </div>
         <DividerComponent color="var(--linear-purple)"></DividerComponent>
         <PersonalInfoContainer>
           <PersonalInfo>
             <p>
-              <span>Idade: </span>86 anos
+              <span>Idade: </span>
+              {renderAge(Number(age))}
             </p>
           </PersonalInfo>
           <PersonalInfo>
             <p>
-              <span>Peso: </span>60Kg
+              <span>Altura: </span>
+              {renderHeight(Number(height))}
             </p>
           </PersonalInfo>
           <PersonalInfo>
             <p>
-              <span>Altura: </span>1,70m
+              <span>Peso: </span>
+              {renderWeight(Number(weight))}
             </p>
           </PersonalInfo>
         </PersonalInfoContainer>
-        <a href="">Av. Rio Madeira, 10 - Santa Cruz, Betim - MG, 32667-022</a>
+        <PersonalInfoText as={"a"}>{address ? address : "Endereço não informado"}</PersonalInfoText>
       </PersonalInfoCard>
     </MainCardComponent>
   );

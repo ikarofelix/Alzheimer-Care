@@ -36,3 +36,10 @@ export const PersonalInfo = styled.div`
   color: var(--text-white);
   background: var(--linear-purple);
 `;
+
+export const PersonalInfoText = styled.p`
+  width: 100%;
+  height: 1.3em;
+  word-break: break-all;
+  overflow: hidden;
+`;
