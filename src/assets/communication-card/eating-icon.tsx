@@ -1,4 +1,4 @@
-export const EatingIcon = () => (
+export const FoodIcon = () => (
   <svg
     width="100%"
     height="100%"

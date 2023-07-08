@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const HabitsCard = styled.div`
-  grid-area: habits;
+export const CommunicationCard = styled.div`
+  grid-area: communication;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -9,6 +9,15 @@ export const HabitsCard = styled.div`
   h3 {
     text-align: left;
   }
+`;
+
+export const Communication = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--text-background);
+  border-radius: var(--border-radius);
+  padding: 2px 5px;
 
   p {
     width: 100%;
@@ -19,16 +28,7 @@ export const HabitsCard = styled.div`
   }
 `;
 
-export const Habit = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background-color: var(--text-background);
-  border-radius: var(--border-radius);
-  padding: 2px 5px;
-`;
-
-export const HabitIconContainer = styled.div`
+export const CommunicationIconContainer = styled.div`
   height: 34px;
   min-width: 34px;
 `;

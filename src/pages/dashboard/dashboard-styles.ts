@@ -32,7 +32,7 @@ export const FirstGrid = styled.section`
     grid-template:
       "profile"
       "emergency"
-      "heart";
+      "heart" 20em;
   }
   grid-template-columns: 1fr;
 `;
@@ -43,17 +43,17 @@ export const SecondGrid = styled.section`
 
   @media screen and (min-width: ${ScreenSizes.large}) {
     grid-gap: 2%;
-    grid-template: "habits events medicine" 1fr / 25% 35% 36%;
+    grid-template: "communication events medicine" 1fr / 25% 35% 36%;
   }
 
   @media screen and (max-width: ${ScreenSizes.large}) and (min-width: ${ScreenSizes.small}) {
     grid-template:
-      "habits events" 1fr
+      "communication events" 1fr
       "medicine medicine" 1fr;
   }
 
   @media screen and (max-width: ${ScreenSizes.small}) {
-    grid-template: "habits" "events" "medicine";
+    grid-template: "communication" "events" "medicine";
     grid-template-columns: 1fr;
   }
 `;
