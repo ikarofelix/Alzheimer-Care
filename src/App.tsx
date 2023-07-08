@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     if (!loading && data) {
-      dispatch(setCurrentUser(data));
+      dispatch(setCurrentUser(data.user));
     }
   }, [loading]);
 

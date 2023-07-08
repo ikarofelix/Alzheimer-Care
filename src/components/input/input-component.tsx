@@ -19,4 +19,8 @@ export const InputComponent = styled.input`
     outline: 0;
     box-shadow: 0 0 1px 1px var(--purple-dark);
   }
+
+  :invalid {
+    border: 1px solid red;
+  }
 `;

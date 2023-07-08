@@ -1,6 +1,9 @@
 import styled, { keyframes } from "styled-components";
 
 export const dotRectAnimation = keyframes`
+  0% {
+    transform: translate(-18px, -18px);
+  }
   25% {
     transform: translate(0, 0);
   }
@@ -10,9 +13,7 @@ export const dotRectAnimation = keyframes`
   75% {
     transform: translate(0, -36px);
   }
-  100% {
-    transform: translate(-18px, -18px);
-  }
+  
 `;
 
 export const pathCircleAnimation = keyframes`

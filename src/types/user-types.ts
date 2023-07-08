@@ -6,7 +6,7 @@ export type CreateResponseType = {
 
 export type EmergencyCardType = {
   name: String;
-  phone_number: Number;
+  phone_number: String;
 };
 
 export type BpmCardType = {
@@ -14,8 +14,16 @@ export type BpmCardType = {
   bpm: Number;
 };
 
+export enum CommunicationCategory {
+  walk = "walk",
+  food = "food",
+  shower = "shower",
+  hobbies = "hobbies",
+  communication = "communication",
+}
+
 export type CommunicationCardType = {
-  category: String;
+  category: CommunicationCategory;
   text: String;
 };
 
@@ -33,7 +41,7 @@ export type MedicineCardType = {
 export type ProfessionalCardType = {
   name: String;
   job: String;
-  phone_number: Number;
+  phone_number: String;
 };
 
 export type ExerciseCardType = {
@@ -42,17 +50,17 @@ export type ExerciseCardType = {
 };
 
 export type UserDBType = {
-  id?: String;
-  name?: String;
-  email?: String;
+  id: String;
+  name: String;
+  email: String;
   age?: Number;
   height?: Number;
   weight?: Number;
   address?: String;
-  emergency_card?: [EmergencyCardType];
-  bpm_card?: [BpmCardType];
-  communication_card?: [CommunicationCardType];
-  event_card?: [EventCardType];
+  emergency_card: [EmergencyCardType];
+  bpm_card: [BpmCardType];
+  communication_card: [CommunicationCardType];
+  event_card: [EventCardType];
   medicine_card?: [MedicineCardType];
   professional_card?: [ProfessionalCardType];
   exercise_card?: [ExerciseCardType];

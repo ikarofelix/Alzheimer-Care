@@ -87,12 +87,11 @@ export const SignUp = () => {
         <div>
           <LabelComponent htmlFor="signup-name">Nome</LabelComponent>
           <InputComponent
-            required
             type="name"
             id="signup-name"
             name="signup-name"
             placeholder="Insira seu nome"
-            maxLength={255}
+            maxLength={100}
             value={name}
             onChange={handleNameChange}
           />
@@ -100,7 +99,6 @@ export const SignUp = () => {
         <div>
           <LabelComponent htmlFor="signup-email">Email</LabelComponent>
           <InputComponent
-            required
             type="email"
             id="signup-email"
             name="signup-email"
@@ -113,7 +111,6 @@ export const SignUp = () => {
         <div>
           <LabelComponent htmlFor="signup-password">Senha</LabelComponent>
           <InputComponent
-            required
             type="password"
             id="signup-password"
             name="signup-password"
@@ -127,7 +124,6 @@ export const SignUp = () => {
         <div>
           <LabelComponent htmlFor="signup-confirm-password">Confirmar senha</LabelComponent>
           <InputComponent
-            required
             type="password"
             id="signup-confirm-password"
             name="signup-confirm-password"
@@ -139,7 +135,9 @@ export const SignUp = () => {
           />
         </div>
         <ButtonsContainer>
-          <ButtonComponent color={ButtonComponentTypes.LoginButton}>Criar conta</ButtonComponent>
+          <ButtonComponent color={ButtonComponentTypes.LoginButton} type="submit">
+            Criar conta
+          </ButtonComponent>
         </ButtonsContainer>
       </AuthForm>
       {signUpError && <p style={{ color: "red" }}>{signUpError}</p>}
