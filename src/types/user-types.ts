@@ -61,9 +61,9 @@ export type UserDBType = {
   bpm_card: [BpmCardType];
   communication_card: [CommunicationCardType];
   event_card: [EventCardType];
-  medicine_card?: [MedicineCardType];
-  professional_card?: [ProfessionalCardType];
-  exercise_card?: [ExerciseCardType];
+  medicine_card: [MedicineCardType];
+  professional_card: [ProfessionalCardType];
+  exercise_card: [ExerciseCardType];
 };
 
 export type UserGoogleType = {
