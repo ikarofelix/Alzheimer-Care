@@ -17,10 +17,15 @@ export const Exercises = styled.div`
 `;
 
 export const ExercisesChartContainer = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: flex-start; */
   height: 90%;
   width: 90%;
   margin: auto;
+
+  p {
+    text-align: center;
+    justify-self: center;
+  }
 `;
