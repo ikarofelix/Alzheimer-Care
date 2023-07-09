@@ -25,7 +25,7 @@ export const MedicineList = styled.ul`
 
 export const Medicine = styled.li`
   padding: 10px 10px;
-  width: clamp(90px, 25%, 200px);
+  width: clamp(90px, 40%, 200px);
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -38,9 +38,12 @@ export const Medicine = styled.li`
   }
 `;
 
-export const MedicineTitle = styled.div`
-  overflow: hidden;
+export const MedicineName = styled.div`
+  width: 100%;
   height: 1.5em;
+  text-align: center;
+  word-break: break-all;
+  overflow: hidden;
 
   span {
     font-weight: 500;
