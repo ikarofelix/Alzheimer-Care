@@ -30,15 +30,15 @@ const options: ChartOptions<"doughnut"> = {
 export const ExercisesChart = () => {
   const { exercise_card } = useAppSelector(currentUserSelector);
 
+  const dataList = () =>
+    exercise_card && exercise_card.length && exercise_card.map((item) => item.minutes);
+
   const data: ChartData<"doughnut"> = {
     labels: exercise_card && exercise_card.length && exercise_card.map((item) => item.name),
     datasets: [
       {
         label: "Minutos",
-        data:
-          exercise_card &&
-          exercise_card.length &&
-          (exercise_card.map((item) => item.minutes) as [number]),
+        data: dataList() as number[],
         backgroundColor: [
           "#00A3FF",
           "#0085FF",
