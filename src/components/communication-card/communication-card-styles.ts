@@ -9,6 +9,7 @@ export const CommunicationCard = styled.div`
 `;
 
 export const CommunicationList = styled.div`
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 5px;
