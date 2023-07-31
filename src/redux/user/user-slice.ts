@@ -3,7 +3,7 @@ import { RootState } from "../store";
 import { UserDBType } from "../../types/user-types";
 
 interface UserState {
-  currentUser: UserDBType;
+  currentUser: UserDBType | {};
 }
 
 const initialState: UserState = {
