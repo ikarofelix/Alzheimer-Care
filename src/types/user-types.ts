@@ -50,20 +50,20 @@ export type ExerciseCardType = {
 };
 
 export type UserDBType = {
-  id: String;
-  name: String;
-  email: String;
+  id?: String;
+  name?: String;
+  email?: String;
   age?: Number;
   height?: Number;
   weight?: Number;
   address?: String;
-  emergency_card: [EmergencyCardType];
-  bpm_card: [BpmCardType];
-  communication_card: [CommunicationCardType];
-  event_card: [EventCardType];
-  medicine_card: [MedicineCardType];
-  professional_card: [ProfessionalCardType];
-  exercise_card: [ExerciseCardType];
+  emergency_card?: [EmergencyCardType];
+  bpm_card?: [BpmCardType];
+  communication_card?: [CommunicationCardType];
+  event_card?: [EventCardType];
+  medicine_card?: [MedicineCardType];
+  professional_card?: [ProfessionalCardType];
+  exercise_card?: [ExerciseCardType];
 };
 
 export type UserGoogleType = {
