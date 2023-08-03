@@ -17,12 +17,21 @@ import { MedicineCardComponent } from "../../components/medicine-card/medicine-c
 import { PersonalInfoCardComponent } from "../../components/personal-info-card/personal-info-card-component";
 import { ProfessionalCardComponent } from "../../components/professional-card/professional-card-component";
 import { LogoutIcon } from "../../assets/dashboard/logout-icon";
-import { useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import { LOG_USER_OUT } from "../../queries/queries";
 import AlzheimerCareIcon from "../../assets/dashboard/alzheimer-care-icon.png";
 
 export const DashboardPage = () => {
-  const LogUserOut = useQuery(LOG_USER_OUT);
+  const [logout] = useLazyQuery(LOG_USER_OUT);
+
+  const LogUserOut = async () => {
+    try {
+      await logout();
+      window.location.href = "/";
+    } catch (err) {
+      throw err;
+    }
+  };
 
   return (
     <Dashboard>
@@ -33,7 +42,7 @@ export const DashboardPage = () => {
       </NavBar>
       <MainContainer>
         <LogoutContainer>
-          <a href="" title="Sair" onClick={() => LogUserOut}>
+          <a title="Sair" onClick={LogUserOut}>
             <LogoutIcon />
           </a>
         </LogoutContainer>

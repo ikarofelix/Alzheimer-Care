@@ -8,7 +8,7 @@ import { store } from "./redux/store";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "https://alzheimer-care-server.vercel.app/",
+  uri: "https://alzheimer-care-server.vercel.app/graphql",
   credentials: "include",
 });
 
