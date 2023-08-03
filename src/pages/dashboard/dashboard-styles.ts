@@ -31,6 +31,10 @@ export const LogoutContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   height: 30px;
+
+  a {
+    cursor: pointer;
+  }
 `;
 
 export const FirstGrid = styled.section`
