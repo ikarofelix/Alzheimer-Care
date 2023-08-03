@@ -5,12 +5,32 @@ enum ScreenSizes {
   small = "600px",
 }
 
-export const MainContainer = styled.main`
+export const Dashboard = styled.div`
   max-width: 1342px;
+  margin: auto;
+`;
+
+export const NavBar = styled.nav`
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+
+  img {
+    width: 100%;
+  }
+`;
+
+export const MainContainer = styled.main`
   padding: 1em;
   margin: auto;
   display: grid;
   grid-gap: 20px;
+`;
+
+export const LogoutContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  height: 30px;
 `;
 
 export const FirstGrid = styled.section`
