@@ -42,7 +42,7 @@ export const DashboardPage = () => {
       </NavBar>
       <MainContainer>
         <LogoutContainer>
-          <a title="Sair" onClick={LogUserOut}>
+          <a href="" title="Sair" onClick={LogUserOut}>
             <LogoutIcon />
           </a>
         </LogoutContainer>
