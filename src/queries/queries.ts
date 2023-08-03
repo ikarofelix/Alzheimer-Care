@@ -49,3 +49,9 @@ export const AUTHENTICATE_USER_QUERY = gql`
     authenticate(user: $user)
   }
 `;
+
+export const LOG_USER_OUT = gql`
+  query logUserOut {
+    logUserOut
+  }
+`;
