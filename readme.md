@@ -32,9 +32,9 @@ Página de acesso
 ![Alt text](docs/login-page-print.png)
 
 Dashboard/Painel do usuário
-![Alt text](docs/login-page-print.png)
+![Alt text](docs/dashboard-print.png)
 
-Esse projeto foi separado em 2 repositórios, sendo <a href="https://github.com/ikarofelix/Alzheimer-Care">Alzheimer-Care</a> o Front-End e o <a href="https://github.com/ikarofelix/Alzheimer-Care-Server">Alzheimer-Care-Server</a> o Back-End.
+Esse projeto foi separado em 2 repositórios, sendo <a href="https://github.com/ikarofelix/Alzheimer-Care">Alzheimer-Care</a> o Front-End e <a href="https://github.com/ikarofelix/Alzheimer-Care-Server">Alzheimer-Care-Server</a> o Back-End.
 
 # Tecnologias usadas (Front-End)
 
