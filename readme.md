@@ -61,6 +61,10 @@ Esse projeto foi separado em 2 repositórios, sendo <a href="https://github.com/
 > - MySQL
 > - Clever Cloud
 
+<h1><a href="https://github.com/users/ikarofelix/projects/3">Atualizações/Progresso do projeto
+</a>
+</h1>
+
 # LICENSE
 
 MIT License.
