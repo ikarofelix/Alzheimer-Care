@@ -7,7 +7,7 @@
 <p align="center">Este é um projeto pessoal, inspirado pelo senhor Sinval Batista.
  </p>
 
- <img align="center" width="500px" height="500px" src="https://media.licdn.com/dms/image/D4D22AQHxLq549IFCNA/feedshare-shrink_1280/0/1685390261316?e=1694044800&v=beta&t=AQO5uSx_TF-2k-_IMerK734ahqIk02IUJIEpqBhoLNY" alt="Idoso sentado em uma cadeira usando uma blusa azul enquanto olha diretamente para a câmera"/>
+ <img width="500px" src="docs/grandpa-image.png" align="center" alt="Idoso sentado em uma cadeira usando uma blusa azul enquanto olha diretamente para a câmera"/>
 
 <details>
 <summary><h1?>PORQUE ESTE PROJETO?</h1></summary>
