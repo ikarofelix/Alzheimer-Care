@@ -31,10 +31,10 @@
 # Projeto
 
 Página de acesso
-![Alt text](docs/login-page-print.png)
+![Página de acesso](docs/login-page-print.png)
 
 Dashboard/Painel do usuário
-![Alt text](docs/dashboard-print.png)
+![Painel do usuário](docs/dashboard-print.png)
 
 Esse projeto foi separado em 2 repositórios, sendo <a href="https://github.com/ikarofelix/Alzheimer-Care">Alzheimer-Care</a> o Front-End e <a href="https://github.com/ikarofelix/Alzheimer-Care-Server">Alzheimer-Care-Server</a> o Back-End.
 
@@ -59,7 +59,7 @@ Esse projeto foi separado em 2 repositórios, sendo <a href="https://github.com/
 > - Express
 > - GraphQL
 > - MySQL
-> - Clever Cloud
+>   com hospedagem no [Clever Cloud](https://www.clever-cloud.com/) ![Estrutura da base de dados e valores de exemplo](docs/database-print.png)
 
 <h1><a href="https://github.com/users/ikarofelix/projects/3">Atualizações/Progresso do projeto
 </a>
