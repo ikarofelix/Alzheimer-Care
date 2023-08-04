@@ -67,4 +67,4 @@ Esse projeto foi separado em 2 repositórios, sendo <a href="https://github.com/
 
 # LICENSE
 
-MIT License.
+[MIT License](https://github.com/ikarofelix/Alzheimer-Care/blob/main/LICENSE).
