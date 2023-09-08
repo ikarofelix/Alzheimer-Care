@@ -29,7 +29,7 @@ export const MainContainer = styled.main`
 
 export const LogoutContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   height: 30px;
 
   a {

@@ -21,7 +21,7 @@ export const ProfessionalCardComponent = () => {
           {professional_card && professional_card.length ? (
             professional_card.slice(0, 4).map((item) => {
               return (
-                <ProfessionalContact>
+                <ProfessionalContact key={professional_card.indexOf(item)}>
                   <p>{item.name}</p>
                   <DividerComponent color="var(--text-white)" />
                   <p>{item.job}</p>

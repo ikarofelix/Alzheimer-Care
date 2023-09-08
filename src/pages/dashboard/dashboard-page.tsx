@@ -7,6 +7,7 @@ import {
   NavBar,
   LogoutContainer,
 } from "./dashboard-styles";
+import { HelpComponent } from "../../components/help/help-component";
 import { EmergencyContactsCardComponent } from "../../components/emergency-contacts-card/emergency-contacts-card-component";
 import { ExercisesCardComponent } from "../../components/exercises-card/exercises-card-component";
 import { CommunicationCardComponent } from "../../components/communication-card/communication-card-component";
@@ -17,17 +18,25 @@ import { MedicineCardComponent } from "../../components/medicine-card/medicine-c
 import { PersonalInfoCardComponent } from "../../components/personal-info-card/personal-info-card-component";
 import { ProfessionalCardComponent } from "../../components/professional-card/professional-card-component";
 import { LogoutIcon } from "../../assets/dashboard/logout-icon";
-import { useLazyQuery } from "@apollo/client";
-import { LOG_USER_OUT } from "../../queries/queries";
 import AlzheimerCareIcon from "../../assets/dashboard/alzheimer-care-icon.png";
+import { signOutUserHandler } from "../../handlers/sign-user";
+import { useAppSelector } from "../../redux/hooks";
+import { currentUserSelector } from "../../redux/user/user-slice";
+import { useState, useEffect } from "react";
 
 export const DashboardPage = () => {
-  const [logout] = useLazyQuery(LOG_USER_OUT);
+  const { address } = useAppSelector(currentUserSelector);
+  const [isNewUser, setIsNewUser] = useState(false);
+
+  useEffect(() => {
+    if (address === "") {
+      setIsNewUser(true);
+    }
+  }, [address]);
 
   const LogUserOut = async () => {
     try {
-      await logout();
-      window.location.href = "/";
+      await signOutUserHandler();
     } catch (err) {
       throw err;
     }
@@ -42,6 +51,7 @@ export const DashboardPage = () => {
       </NavBar>
       <MainContainer>
         <LogoutContainer>
+          {isNewUser && <HelpComponent />}
           <a title="Sair" onClick={LogUserOut}>
             <LogoutIcon />
           </a>
