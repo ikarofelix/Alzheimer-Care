@@ -10,29 +10,30 @@ import {
 import { InputComponent, LabelComponent } from "../../components/input/input-component";
 import { ButtonComponent, ButtonComponentTypes } from "../../components/button/button-component";
 import { GoogleIcon } from "../../assets/login-route/google-icon";
-import { UserGoogleType } from "../../types/user-types";
 import { AUTHENTICATE_USER_QUERY } from "../../queries/queries";
 import { signInEmailAndPassword, signInWithGooglePopup } from "../../utils/firebase/firebase";
 import { AuthErrorCodes } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
+import { signInUserHandler } from "../../handlers/sign-user";
 
 export const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [signInError, setSignInError] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [signInError, setSignInError] = useState<string>("");
   const [authenticateUser] = useLazyQuery(AUTHENTICATE_USER_QUERY);
 
-  const signIn = async (e: FormEvent<HTMLFormElement>) => {
+  const signInWithEmailAndPassword = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     setSignInError("");
     try {
       const user = await signInEmailAndPassword(email, password);
-      await authenticateUser({
+      const { data } = await authenticateUser({
         variables: {
           user: { uid: user.uid, displayName: user.displayName, email: user.email },
         },
       });
-      window.location.href = "/";
+
+      await signInUserHandler(data.authenticate);
     } catch (err) {
       (err as FirebaseError).code === AuthErrorCodes.USER_DELETED &&
         setSignInError("Usuário não encontrado.");
@@ -41,47 +42,42 @@ export const SignIn = () => {
     }
   };
 
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = async (): Promise<void> => {
     try {
       const user = await signInWithGooglePopup();
-      const { uid, displayName, email } = user as UserGoogleType;
-      await userAuthentication({ uid, displayName, email });
+      const { data } = await authenticateUser({
+        variables: {
+          user: { uid: user.uid, displayName: user.displayName, email: user.email },
+        },
+      });
+      await signInUserHandler(data.authenticate);
     } catch (err) {
       throw err;
     }
   };
 
-  const signInWithDemo = async () => {
+  const signInWithDemo = async (): Promise<void> => {
     try {
       const user = await signInEmailAndPassword(
         import.meta.env.VITE_DEMO_ACCOUNT_EMAIL,
         import.meta.env.VITE_DEMO_ACCOUNT_PASSWORD
       );
-      await authenticateUser({
+      const { data } = await authenticateUser({
         variables: {
           user: { uid: user.uid, displayName: user.displayName, email: user.email },
         },
       });
-      window.location.href = "/";
+
+      await signInUserHandler(data.authenticate);
     } catch (err) {
-      throw err;
+      alert("Ocorreu um erro. Aguarde que a página será recarregada para que tente novamente.");
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     }
   };
 
-  const userAuthentication = async (user: UserGoogleType) => {
-    try {
-      await authenticateUser({
-        variables: {
-          user,
-        },
-      });
-      window.location.href = "/";
-    } catch (err) {
-      throw err;
-    }
-  };
-
-  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setEmail(event.target.value);
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailPattern.test(event.target.value)) {
@@ -91,7 +87,7 @@ export const SignIn = () => {
     }
   };
 
-  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setPassword(event.target.value);
     if (event.target.value.length < 8) {
       event.target.setCustomValidity("Sua senha precisa ter pelo menos 8 caracteres.");
@@ -106,7 +102,7 @@ export const SignIn = () => {
         <h1>Seja bem-vindo(a)!</h1>
         <h3>Por favor, insira suas informações.</h3>
       </AuthTitle>
-      <AuthForm onSubmit={signIn}>
+      <AuthForm onSubmit={signInWithEmailAndPassword}>
         <div>
           <LabelComponent htmlFor="login-email">Email</LabelComponent>
           <InputComponent

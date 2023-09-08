@@ -8,6 +8,7 @@ import { AuthErrorCodes } from "firebase/auth";
 import { useLazyQuery } from "@apollo/client";
 import { AUTHENTICATE_USER_QUERY } from "../../queries/queries";
 import { LoaderComponent } from "../../components/loader/loader-component";
+import { signInUserHandler } from "../../handlers/sign-user";
 
 export const SignUp = () => {
   const [name, setName] = useState("");
@@ -16,7 +17,6 @@ export const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [signUpError, setSignUpError] = useState("");
   const [signUpLoading, setSignUpLoading] = useState(false);
-
   const [authenticateUser] = useLazyQuery(AUTHENTICATE_USER_QUERY);
 
   const signUp = async (e: FormEvent<HTMLFormElement>) => {
@@ -30,12 +30,12 @@ export const SignUp = () => {
     try {
       const user = await signUpWithEmailAndPassword(email, password, name);
       setSignUpLoading(true);
-      await authenticateUser({
+      const { data } = await authenticateUser({
         variables: {
           user: { uid: user.uid, displayName: user.displayName, email: user.email },
         },
       });
-      window.location.href = "/";
+      await signInUserHandler(data.authenticate);
     } catch (err) {
       (err as FirebaseError).code === AuthErrorCodes.EMAIL_EXISTS &&
         setSignUpError("Esse email já existe.");
