@@ -24,8 +24,6 @@
 
 </details>
 
-<br/>
-
 <p align="center">Acompanhe o desenvolvimento e atualizações no <a href="https://www.linkedin.com/in/ikarofelix/recent-activity/all/">Linkedin</a> ou aqui mesmo no <a href="https://github.com/ikarofelix/Alzheimer-Care"> Github.</a></p>
 
 # Projeto
@@ -58,6 +56,7 @@ Esse projeto foi separado em 2 repositórios, sendo <a href="https://github.com/
 > - Apollo Server
 > - Express
 > - GraphQL
+> - Serverless Function
 > - MySQL
 >   com hospedagem no [Clever Cloud](https://www.clever-cloud.com/) ![Estrutura da base de dados e valores de exemplo](docs/database-print.png)
 
