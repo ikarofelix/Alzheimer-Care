@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const USER_DASHBOARD_QUERY = gql`
-  query User {
-    user {
+  query User($userToken: String!) {
+    user(userToken: $userToken) {
       id
       name
       email
@@ -47,11 +47,5 @@ export const USER_DASHBOARD_QUERY = gql`
 export const AUTHENTICATE_USER_QUERY = gql`
   query Authenticate($user: UserGoogle!) {
     authenticate(user: $user)
-  }
-`;
-
-export const LOG_USER_OUT = gql`
-  query logUserOut {
-    logUserOut
   }
 `;

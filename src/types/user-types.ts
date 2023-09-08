@@ -65,11 +65,3 @@ export type UserDBType = {
   professional_card?: [ProfessionalCardType];
   exercise_card?: [ExerciseCardType];
 };
-
-export type UserGoogleType = {
-  uid: String;
-  displayName: String;
-  email: String;
-};
-
-export type UserType = UserDBType | UserGoogleType;
